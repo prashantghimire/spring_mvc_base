@@ -13,19 +13,20 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.pluralsight.model.Goal;
 import com.pluralsight.service.GoalService;
+import com.pluralsight.service.IGoalService;
 
 @Controller
 @SessionAttributes("goal")
 public class GoalController {
 	
 	@Autowired
-	private GoalService goalService;
+	private IGoalService goalService;
 	
-	public GoalService getGoalService() {
+	public IGoalService getGoalService() {
 		return goalService;
 	}
 
-	public void setGoalService(GoalService goalService) {
+	public void setGoalService(IGoalService goalService) {
 		this.goalService = goalService;
 	}
 

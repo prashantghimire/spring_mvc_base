@@ -5,22 +5,23 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pluralsight.model.Goal;
-import com.pluralsight.repository.GoalRepository;
+import com.pluralsight.repository.IGoalRepository;
 
 @Service("goalService")
 public class GoalService implements IGoalService {
 
 	@Autowired
-	private GoalRepository goalRepository;
+	private IGoalRepository goalRepository;
 
-	public GoalRepository getGoalRepository() {
+	public IGoalRepository getGoalRepository() {
 		return goalRepository;
 	}
 
-	public void setGoalRepository(GoalRepository goalRepository) {
+	public void setGoalRepository(IGoalRepository goalRepository) {
 		this.goalRepository = goalRepository;
 	}
 
+	@Transactional
 	public Goal save(Goal goal) {
 		return goalRepository.save(goal);
 	}
