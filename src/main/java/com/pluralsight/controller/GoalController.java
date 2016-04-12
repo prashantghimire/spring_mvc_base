@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.pluralsight.model.Goal;
-import com.pluralsight.service.GoalService;
 import com.pluralsight.service.IGoalService;
 
 @Controller

@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pluralsight.model.Activity;
 import com.pluralsight.model.Exercise;
-import com.pluralsight.service.ExerciseService;
+import com.pluralsight.service.IExerciseService;
 
 
 @Controller
 public class MinutesController {
 
 	@Autowired
-	private ExerciseService exerciseService;
+	private IExerciseService exerciseService;
 	
 	@RequestMapping(value = "/addMinutes",  method = RequestMethod.GET)
 	public String getMinutes(@ModelAttribute ("exercise") Exercise exercise) {
