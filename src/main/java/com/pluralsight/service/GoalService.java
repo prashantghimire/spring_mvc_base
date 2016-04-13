@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pluralsight.model.Goal;
+import com.pluralsight.model.GoalReport;
 import com.pluralsight.repository.IGoalRepository;
 
 @Service("goalService")
@@ -32,6 +33,11 @@ public class GoalService implements IGoalService {
 		
 		return goalRepository.loadAll();
 			
+	}
+
+	public List<GoalReport> findAllGoalReports() {
+		// TODO Auto-generated method stub
+		return goalRepository.loadGoalReports();
 	}
 
 }
