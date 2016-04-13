@@ -24,11 +24,15 @@ import org.hibernate.validator.constraints.Range;
 			query="SELECT new com.pluralsight.model.GoalReport(g.minutes, e.minutes, e.activity)"
 					+ "FROM Goal g, Exercise e "
 					+ "WHERE g.id = e.goal.id"
-			)
+				),
+	@NamedQuery(name=Goal.FIND_GOALS,
+				query="SELECT g FROM Goal g"
+				)
 })
 public class Goal {
 	
 	public static final String FIND_GOAL_REPORTS = "findGoalReports";
+	public static final String FIND_GOALS = "findGoals";
 
 	@Id
 	@GeneratedValue
