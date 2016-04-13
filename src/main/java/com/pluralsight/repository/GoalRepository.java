@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
@@ -36,13 +37,10 @@ public class GoalRepository implements IGoalRepository {
 	}
 
 	public List<GoalReport> loadGoalReports() {
-
-		Query query = em.createQuery("SELECT new com.pluralsight.model.GoalReport(g.minutes, e.minutes, e.activity)"
-				+ "from Goal g, Exercise e WHERE g.id = e.goal.id");
-
-		List<GoalReport> goalReports = query.getResultList();
-
-		return goalReports;
+		
+		TypedQuery<GoalReport> query = em.createNamedQuery(Goal.FIND_GOAL_REPORTS, GoalReport.class);
+		
+		return query.getResultList();
 	}
 
 }
