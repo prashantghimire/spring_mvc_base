@@ -31,7 +31,7 @@ public class GoalService implements IGoalService {
 
 	public List<Goal> findAllGoals() {
 		
-		return goalRepository.loadAll();
+		return goalRepository.findAll();
 			
 	}
 

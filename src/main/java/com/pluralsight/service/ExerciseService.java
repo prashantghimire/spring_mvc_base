@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pluralsight.model.Activity;
 import com.pluralsight.model.Exercise;
-import com.pluralsight.repository.ExerciseRepository;
+import com.pluralsight.repository.IExerciseRepository;
 
 
 @Service("exerciseService")
@@ -17,7 +17,7 @@ public class ExerciseService implements IExerciseService {
 
 	
 	@Autowired
-	private ExerciseRepository exerciseRepository;
+	private IExerciseRepository exerciseRepository;
 	
 	public List<Activity> findAllActivities() {
 		
@@ -43,11 +43,11 @@ public class ExerciseService implements IExerciseService {
 		return exerciseRepository.save(exercise);
 	}
 
-	public ExerciseRepository getExerciseRepository() {
+	public IExerciseRepository getExerciseRepository() {
 		return exerciseRepository;
 	}
 
-	public void setExerciseRepository(ExerciseRepository exerciseRepository) {
+	public void setExerciseRepository(IExerciseRepository exerciseRepository) {
 		this.exerciseRepository = exerciseRepository;
 	}
 	
