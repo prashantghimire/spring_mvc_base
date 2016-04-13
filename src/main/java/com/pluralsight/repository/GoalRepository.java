@@ -18,8 +18,16 @@ public class GoalRepository implements IGoalRepository {
 	private EntityManager em;	
 
 	public Goal save(Goal goal) {
-		em.persist(goal);
-		em.flush();
+		
+		if(goal.getId() == null){
+			// treat as new record, so insert
+			em.persist(goal);
+			em.flush();
+		} else {
+			// else update, 
+			goal = em.merge(goal);
+		}
+		
 		return goal;
 	}
 
